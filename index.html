@@ -102,10 +102,19 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
-         var a_canvas = document.getElementById("a");// a canvas will appear with a border around it 
-         <canvas id="a" width="350" height="250" style="border:1px solid #000000;"></canvas>
-         /* created a canvas code that will appear with a border around it*/
-          
+          // Get canvas element and its context
+          const canvas = document.getElementById('myCanvas');
+          const ctx = canvas.getContext('2d');
+
+          // Load image and draw it on the canvas
+          function loadImage(event) {
+            const img = new Image();
+            img.onload = function() {
+              ctx.drawImage(img, 0, 0);
+            }
+            img.src = URL.createObjectURL(event.target.files[0]);
+          }
+
           
         } // end of img.onload
         
