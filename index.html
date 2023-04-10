@@ -102,11 +102,11 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
           
-          // Load image and draw it on the canvas
-          function loadImage(event) {
-            const img = new Image();
-           
-          
+        function loadImage(event) {
+          var img = document.getElementById('myImage');
+          img.src = URL.createObjectURL(event.target.files[0]);
+        }// code to make the image appear in the first canvas after it is selected from the file
+
         } // end of img.onload
         
         img.src = reader.result;
