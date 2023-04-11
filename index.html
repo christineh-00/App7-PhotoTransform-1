@@ -145,14 +145,44 @@
         context.fillText("Original image will go here", 10, 20);
       </script>
      
-      <canvas id="myCanvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> 
-     // changed the Id to 'myCanvas2" 
-      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas2" */
-        var canvas = document.getElementById('myCanvas2'); // changed the Id to 'myCanvas2" 
-        var context = canvas.getContext("2d");
-        context.font = '20pt Calibri';
-        context.fillStyle = "black";
-      </script> // copied and pasted the coding for the first canvas and made some minor adjustment to it
+     // Get the original canvas and its 2D context
+const originalCanvas = document.getElementById("original-canvas");
+const originalCtx = originalCanvas.getContext("2d");
+
+// Create a new canvas element
+const blueCanvas = document.createElement("canvas");
+
+// Set the dimensions of the new canvas to be the same as the original
+blueCanvas.width = originalCanvas.width;
+blueCanvas.height = originalCanvas.height;
+
+// Get the 2D context of the new canvas
+const blueCtx = blueCanvas.getContext("2d");
+
+// Get the ImageData object of the original canvas
+const imageData = originalCtx.getImageData(0, 0, originalCanvas.width, originalCanvas.height);
+
+// Loop through each pixel of the ImageData object
+for (let i = 0; i < imageData.data.length; i += 4) {
+  // Check if the blue component is greater than the red and green components
+  if (imageData.data[i + 2] > imageData.data[i] && imageData.data[i + 2] > imageData.data[i + 1]) {
+    // Set the pixel's color to blue
+    imageData.data[i] = 0;
+    imageData.data[i + 1] = 0;
+    imageData.data[i + 2] = 255;
+    imageData.data[i + 3] = 255;
+  } else {
+    // Set the pixel's color to transparent
+    imageData.data[i + 3] = 0;
+  }
+}
+
+// Put the modified ImageData object onto the new canvas
+blueCtx.putImageData(imageData, 0, 0);
+
+// Append the new canvas to the document body
+document.body.appendChild(blueCanvas);
+
      
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
