@@ -144,24 +144,11 @@
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
       </script>
-     
-     <script>
-		window.onload = function() {
-			// code for a second canvas to appear
-			var canvas2 = document.createElement("canvas");
-			canvas2.id = "myCanvas2";
-			canvas2.width = 400;
-			canvas2.height = 400;
-			document.body.appendChild(canvas2);
 
-			var ctx2 = canvas2.getContext("2d");
-   // get the canvas context for drawing
-   
-			ctx2.fillStyle = "red";
-			ctx2.fillRect(0, 0, canvas2.width, canvas2.height);
-   // draw something on the second canvas
-		}
-	</script>
+     <canvas id="myCanvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas2" */
+     
+      </script>
      
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
