@@ -144,7 +144,17 @@
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
       </script>
-
+     
+      <canvas id="myCanvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> 
+     // changed the Id to 'myCanvas2" 
+      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas2" */
+        var canvas = document.getElementById('myCanvas2'); // changed the Id to 'myCanvas2" 
+        var context = canvas.getContext("2d");
+        context.font = '20pt Calibri';
+        context.fillStyle = "black";
+        context.fillText("Original image will go here", 10, 20);
+      </script> // copied and pasted the coding for the first canvas and made some minor adjustment to it
+     
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
       <p>DIY Diagnostics</p>
