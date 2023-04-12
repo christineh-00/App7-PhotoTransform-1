@@ -102,8 +102,14 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
        
-         var canvas2 = document.getElemenetById("Canvas2"); // calling for the second canvas
-         var context2 = canvas2.getContext("2d"); // makes the parameter 2d
+         var canvas2 = document.getElementById("canvas2"); // calling for the second canvas
+         var ctx2 = canvas2.getContext("2d"); // makes the parameter 2d
+         
+         var img = new Image();// create an image object
+         img.src = canvas.toDataURL(); //set the source of the image to the data URL generated from the first canvas
+         img.onload = function() {
+           ctx2.drawImage(img, 0, 0);
+         }; // draw the image onto the second canvas
          
          var imageData = context.getImageData (0, 0, 600, 500); // the image in the first canvas is retreived
          var data = imageData.data; // returns the object that stores the pixel data
@@ -155,7 +161,7 @@
       </script>
      
       <canvas id="Canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> 
-     /* code for the second canvas to appear */
+      <!-- code for the second canvas to appear -->
   
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
