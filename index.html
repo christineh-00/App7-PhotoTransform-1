@@ -101,11 +101,20 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
+       
+         var canvas2 = document.getElemenetById("Canvas2"); // calling for the second canvas
+         var context2 = canvas2.getContext("2d"); // makes the parameter 2d
+         
+         var imageData = context.getImageData (0, 0, 600, 500); // the image in the first canvas is retreived
+         var data = imageData.data; // returns the object that stores the pixel data
+         
+         // this is the code for changing image color 
+         for(var i = 0; i < data.length; i += 4 ){ // starts at zero and runs a loop on the pixel data
+           data[i] = 0; // the pixels for red is at zero
+           data[i+i] = 0; // the pixels for green is at zero
           
-        function loadImage(event) {
-          var img = document.getElementById('myImage');
-          img.src = URL.createObjectURL(event.target.files[0]);
-        }// code to make the image appear in the first canvas after it is selected from the file
+         }
+         context2.putImageData(imageData, 0, 0); // the second image will have all the functions applied
 
         } // end of img.onload
         
@@ -143,13 +152,6 @@
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
-      </script>
-
-     <canvas id="canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> /* added in a second canvas */
-      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas2" */
-       var canvas2 = document.getElementById('canvas2');
-       var context2 = canvas2.getContext('2d');
-       context2.drawImage(canvas1, 0, 0);
       </script>
      
     </div><!-- /content -->
