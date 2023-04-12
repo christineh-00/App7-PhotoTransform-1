@@ -103,10 +103,9 @@
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
               
          var canvas2 = document.getElementById("canvas2"); // calling for the second canvas
-         var context = canvas.getContext("2d"); // makes the parameter 2d
+         var ctx2 = canvas2.getContext("2d"); // makes the parameter 2d
          
-                 
-         
+                
          var imageData = context.getImageData (0, 0, 600, 500); // the image in the first canvas is retreived
          var data = imageData.data; // returns the object that stores the pixel data
          
