@@ -102,7 +102,7 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
        
-         var canvas1 = document.getElementById("canvas1"); // calling for the first canvas
+         var canvas1 = document.getElementById("myCanvas"); // calling for the first canvas
          var context1 = canvas1.getContext("2d"); //makes the parameter 2d
          
          var canvas2 = document.getElementById("canvas2"); // calling for the second canvas
@@ -110,8 +110,7 @@
          
          var imageData = context1.getImageData(0, 0, canvas1.width, canvas1.height); // the image in the first canvas is retreived
          var pixels = imageData.data; // store pixel data
-         
-                 
+                          
          // this is the code for changing image color 
          for (var i = 0; i < pixels.length; i += 4) { // starts at zero and runs a loop on the pixel data
            pixels[i] = 0; // the pixels for red is at zero
@@ -151,7 +150,7 @@
       
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
-        var canvas = document.getElementById('canvas1');
+        var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
         context.font = '20pt Calibri';
         context.fillStyle = "black";
