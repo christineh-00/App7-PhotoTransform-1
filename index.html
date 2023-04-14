@@ -101,10 +101,7 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-              
-         var canvas2 = document.getElementById("canvas2"); // calling for the second canvas
-         var ctx2 = canvas2.getContext("2d"); // makes the parameter 2d
-         
+           
                 
          var imageData = context.getImageData (0, 0, 600, 500); // the image in the first canvas is retreived
          var data = imageData.data; // returns the object that stores the pixel data
@@ -153,15 +150,22 @@
       
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
-        var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
+        var canvas1 = document.getElementById('myCanvas');
+        var context2 = canvas.getContext("2d");
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
       </script>
      
       <canvas id="Canvas2" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> 
-      <!-- code for the second canvas to appear -->
+      /* code for the second canvas to appear -->
+      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
+        var canvas2 = document.getElementById('myCanvas'); 
+        /*  copied and pasted from the previous code and changed the "canvas" to "canvas2" */
+        var context2 = canvas.getContext("2d"); 
+        /*  copied and pasted from the previous code and changed the "context" to "context2" */
+      </script>
+     
   
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
