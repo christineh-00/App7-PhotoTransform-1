@@ -111,11 +111,16 @@
          
          // this is the code for changing image color 
          for(var i = 0; i < data.length; i += 4 ){ // starts at zero and runs a loop on the pixel data
-           data[i] = 0; // the pixels for red is at zero
-           data[i+1] = 0; // the pixels for green is at zero
-          
+         data2[i] = 0;// set red channel to zero
+         data2[i + 1] = 0;// set green channel to zero
+         data2[i + 2] = data1[i + 2];// set blue channel to original blue channel
+         data2[i + 3] = data1[i + 3];// set alpha channel to original alpha channel
          }
-         ctx2.putImageData(imageData, 0, 0); // the second image will have all the functions applied
+
+         ctx2.putImageData(imageData2, 0, 0);// the second image will have all the functions applied
+      };
+
+      img.src = "path/to/your/image.jpg";// set the source of the image to load
 
         } // end of img.onload
         
